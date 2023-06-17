@@ -1,0 +1,12 @@
+.headerCell {
+  padding: 12px 8px;
+  background: #edf1f7;
+}
+
+.headerCell:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.headerCell:last-child {
+  border-radius: 0 8px 0 0;
+}

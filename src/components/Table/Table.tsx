@@ -26,6 +26,8 @@ interface ITableProps {
 function Table(props: ITableProps) {
   const { data, columns } = props;
 
+  console.log("Table rendered!");
+
   const defaultColumn = {
     cell: DefaultBodyCell,
   };
@@ -72,4 +74,4 @@ function Table(props: ITableProps) {
   );
 }
 
-export default Table;
+export default React.memo(Table);

@@ -9,8 +9,9 @@ import {
   incrementIfOdd,
   selectCount,
 } from "store/counterSlice";
+import { AmountRocker } from "./child";
 
-import styles from "./Counter.module.css";
+import styles from "styles/Counter.module.css";
 
 function Counter() {
   const dispatch = useAppDispatch();
@@ -21,23 +22,8 @@ function Counter() {
 
   return (
     <div>
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          -
-        </button>
-        <span className={styles.value}>{count}</span>
-        <button
-          className={styles.button}
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          +
-        </button>
-      </div>
+      <AmountRocker />
+
       <div className={styles.row}>
         <input
           className={styles.textbox}

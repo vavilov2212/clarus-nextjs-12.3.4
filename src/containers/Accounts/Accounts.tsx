@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createColumnHelper } from "@tanstack/react-table";
 import { IAccount } from "interfaces";
 import { Table } from "components";
@@ -6,6 +6,12 @@ import { TimeStamp } from "components/Table/CellDataTypes";
 import { DefaultHeaderCell } from "components/Table/CellDataTypes";
 
 const AccountsTable = () => {
+  const [refresher, setRefresher] = useState(0);
+
+  useEffect(() => {
+    console.log("refresher", refresher);
+  }, [refresher]);
+
   const columnHelper = createColumnHelper<IAccount>();
 
   const columns = [
@@ -27,7 +33,14 @@ const AccountsTable = () => {
     }),
   ];
 
-  return <Table data={data} columns={columns} />;
+  return (
+    <div>
+      <button onClick={() => setRefresher((prev) => prev + 1)}>
+        Refresher
+      </button>
+      <Table data={data} columns={columns} />
+    </div>
+  );
 };
 
 export default AccountsTable;
